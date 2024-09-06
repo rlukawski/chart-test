@@ -3,16 +3,16 @@ import { useEffect, useMemo, useRef } from "react";
 
 function App() {
   const canvasRef = useRef();
-  const particles = useMemo(() => {}, []);
 
   useEffect(() => {
-    const particles = new Particles(canvasRef.current);
-    particles.initCanvas();
-    particles.animation();
+    const lines = new Lines(canvasRef.current);
+    lines.initCanvas();
+    lines.animation();
     return () => {
-      particles.cancel();
+      lines.cancel();
     };
-  }, [particles]);
+  }, []);
+
   return (
     <div><div>HEADER</div>
       <canvas ref={canvasRef}></canvas>
@@ -21,11 +21,8 @@ function App() {
   );
 }
 
-export default App;
-class Particles {
-  particles = [];
-  maxDistance = 120;
 
+class Lines {
   constructor(canvas) {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
@@ -139,3 +136,5 @@ class Particles {
     window.cancelAnimationFrame(this.animationFrame);
   }
 }
+
+export default App;
