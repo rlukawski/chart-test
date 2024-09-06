@@ -59,7 +59,6 @@ class Particles {
   }
 
   drawLines() {
-    console.log("DEBUG", Math.random());
     const colors = [
       [0, 0, 0],
       [255, 0, 0],
